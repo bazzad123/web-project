@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #main {
+            margin: 3rem 0rem;
+            height: 100vh;
+            display: flex;
+            width: 100vw;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mcont {
+             border: red solid .3rem; 
+    background: #afafaf;
+    border-radius: 3rem;
+    color: white;
+    height: 45rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 94rem;
+    justify-content: center;
+    align-items: center;
+}
+input.srch {
+    height: 3rem;
+    width: 47rem;
+}
+button#btn {
+    height: 3rem;
+    color: white;
+    width: 7rem;
+    font-size: 1.7rem;
+    background-color: black;
+    border: white solid;
+    border-radius: 2rem;
+}
+.cont {
+    /* border: red solid; */
+    height: 33rem;
+    border-radius: 2rem;
+    margin-top: 2rem;
+    background-color: white;
+    display: flex;
+    width: 54rem;
+    color: black;
+    font-size: 3rem;
+     border: solid blue 0.3rem; 
+    flex-direction: column;
+    align-items: center;
+}
+.dt {
+    
+    font-family: fantasy;
+    display: flex;
+    justify-content: center;
+    
+    /* border: solid; */
+    
+    width: 53rem;
+}
+.result {
+    color: #d17070;
+    width: 53rem;
+    /* display: flex;
+    flex-direction: column; */
+    height: 100vh;
+    /* align-items: center; */
+}
+.day {
+   
+    margin-right:  29rem;
+}
+.timg{
+    display: flex;
+    justify-content: center;
+    /* border: red solid; */
+  
+    height: 18rem;
+    padding-top: 4rem;
+}
+.temp {
+    font-size: 7rem;
+    font-family: monospace;
+}
+.clear{
+    text-align: end;
+}
+
+
+
+{{!-- nav footer css --}}
+     nav {
+            background-color: black;
+            width: 100%;
+            border: blue solid 0.2rem;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            font-size: 2rem;
+            margin: 3.3rem auto;
+            color: rgb(255, 0, 0);
+            padding: -2rem;
+            list-style: none;
+            margin-top: 3.3rem;
+            text-decoration: none;
+        }
+
+        footer {
+            height: 16rem;
+            margin-top: auto;
+            border: rgb(255, 0, 0) solid;
+        }
+
+        #foot {
+            padding: 1.3rem;
+            color: red;
+            line-height: 3rem;
+            background-color: black;
+
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    {{>nav}}
+    <div id="main">
+        <div class="mcont">
+            <div >
+                <input id="search" type="search" class="srch" placeholder="Search By City">
+                <button id="btn" onclick="bt()">click</button>
+            </div>
+            <div class="cont">
+                <div class="dt">
+                    <div class="day">14 DEC</div>
+                    <div class="date">WEDNESDAY</div>
+                </div>
+                <div class="result" id="texts">
+                    <div class="city" id="city">DELHI</div>
+                    <div class="timg">
+                        <div class="temp" id="temp">28.deg-C</div>
+                        <div class="cloud" id="cloud">img</div>
+                    </div>
+                    <div class="clear" id="sky">CLEAR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    <script >
+       const texts = document.getElementById("texts")
+       const city = document.getElementById("city")
+       const temp = document.getElementById("temp")
+       const sky = document.getElementById("sky")
+       const cloud = document.getElementById("cloud")
+
+
+
+const getweather = async()=>{
+    if(search.value==""){
+    texts.innerHTML="opps!!! something wants wrong.please enter the proper city name"
+}else {
+    
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${search.value}&units=metric&appid=f377cad495139f15ae854a96d5cf16e4`
+    const response = await fetch(url);
+   const data = await response.json();
+        
+
+
+   city.innerHTML=`${data.name}.${data.sys.country}`
+   temp.innerHTML=`${data.main.temp}℃`
+   sky.innerHTML=data.weather[0].description
+   {{!-- cloud.innerHTML=`${data.weather[0].icon}.png` --}}
+
+
+    console.log(data)
+}
+}
+ 
+
+      
+
+
+   function bt(){
+
+  
+
+     getweather() ;
+   }
+    </script>
+</body>
+
+</html>

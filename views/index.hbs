@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    {{!-- <link rel="stylesheet" href="../src/style.css"> --}}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        #main {
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            border: red solid;
+        }
+
+        #btn {
+            height: 3rem;
+        }
+
+        #search {
+            height: 3rem;
+            font-size: 2rem;
+        }
+
+        #txt {
+            height: 33rem;
+            width: 55rem;
+            font-size: 2rem;
+            background-color: azure;
+        }
+
+        nav {
+            background-color: black;
+            width: 100%;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            font-size: 2rem;
+            margin: 3.3rem auto;
+            color: rgb(255, 0, 0);
+            padding: -2rem;
+            list-style: none;
+            margin-top: 3.3rem;
+            text-decoration: none;
+        }
+
+        footer {
+            height: 16rem;
+            margin-top: auto;
+            border: green solid;
+        }
+
+        #foot {
+            padding: 1.3rem;
+            color: red;
+            line-height: 2rem;
+            background-color: black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+      {{>nav}}
+        <h1>weather</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur repellat voluptatum, natus accusantium
+            quaerat nobis, nam soluta odit impedit iusto, rem ad explicabo iste eius incidunt corrupti recusandae
+            expedita! Molestiae.</p>
+        <div id="cont">
+            <input type="search" placeholder="search by city" autocomplete="on" id="search">
+            <button id="btn" >search</button>
+            <input id="txt" type="text" placeholder="weather">
+        </div>
+    </div>
+    {{>footer}}
+</body>
+
+</html>

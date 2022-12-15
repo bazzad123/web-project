@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+#main{
+    background-color:aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+    border: red solid ;
+}
+
+#btn{
+    height: 3rem;
+}
+
+#search{
+    height: 3rem;
+    font-size: 2rem;
+}
+#txt{
+    height: 33rem;
+    width: 55rem;
+    font-size: 2rem;
+    background-color: azure;
+}
+nav{
+    background-color: black;
+    width: 100%;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li{
+    font-size: 2rem;
+    margin: 3.3rem auto;
+    color: rgb(255, 0, 0);
+    padding: -2rem;
+    list-style: none;
+    text-decoration: none;
+}
+
